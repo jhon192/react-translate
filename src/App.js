@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import Panel from "./components/Panel";
 import Result from "./components/Result";
-import { chromium } from '@playwright/test';
+import Translater from "./puppeteer";
 
 const App = () => {
   const [textTranslated, setTextTranslated] = useState({});
 
   
-
   const getData = async (e) => {
     e.preventDefault();
     const { input, output, text } = e.target;
-    // const data = await translater(input.value, output.value, text.value);
-    // console.log(data);
+    const data = await Translater(input.value, output.value, text.value);
+    console.log(data);
   };
 
   return (
